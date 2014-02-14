@@ -20,7 +20,7 @@ class RootFactory(object):
     """
     __acl__ = [
         (Allow, Everyone, 'view'),
-        (Allow, 'role:administor', 'admin'),
+        (Allow, 'permission:administor', 'admin'),
     ]
 
     def __init__(self, request):
@@ -62,7 +62,7 @@ class ViewTests(unittest.TestCase):
         settings = {
             'mako.directories': 'pyramid_maintenance:tests/templates',
             'pyramid.tweens': 'pyramid_maintenance.tween_maintenance',
-            'pyramid_maintenance.roles': 'admin',
+            'pyramid_maintenance.permissions': 'admin',
             'pyramid_maintenance.template': 'maintenance.mako',
         }
         app = self._get_app(settings)
@@ -73,7 +73,18 @@ class ViewTests(unittest.TestCase):
         settings = {
             'mako.directories': 'pyramid_maintenance:tests/templates',
             'pyramid.tweens': 'pyramid_maintenance.tween_maintenance',
-            'pyramid_maintenance.roles': 'view',
+            'pyramid_maintenance.permissions': 'view',
+            'pyramid_maintenance.template': 'maintenance.mako',
+        }
+        app = self._get_app(settings)
+        content = app.get('/something')
+        self.assertTrue('This is something' in content)
+
+        # With tween enabled, allow to by-pass maintenance, several permissions in different forms
+        settings = {
+            'mako.directories': 'pyramid_maintenance:tests/templates',
+            'pyramid.tweens': 'pyramid_maintenance.tween_maintenance',
+            'pyramid_maintenance.permissions': 'admin\r\n view , ',
             'pyramid_maintenance.template': 'maintenance.mako',
         }
         app = self._get_app(settings)

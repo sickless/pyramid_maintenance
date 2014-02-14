@@ -30,7 +30,7 @@ requires = [
     ]
 
 setup(name='pyramid_maintenance',
-      version='0.1',
+      version='0.2',
       description='pyramid_maintenance',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[

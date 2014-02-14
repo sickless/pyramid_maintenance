@@ -15,8 +15,8 @@ This tween gives you the possibility to put an application in maintenance mode (
 
 How to install it
 -----------------
-
 ::
+
     pip install pyramid_maintenance
 
 
@@ -30,8 +30,8 @@ If you want to enable pyramid_maintenance tween in your pyramid app, you have to
 
 And define the following settings::
 
-    # List of roles (separeted by commas). The pyramid app isn't
-    # in maintenance mode for people who have one of these roles.
-    pyramid_maintenance.roles = role1, role2
+    # List of permissions (separeted by comma, space, carriage return and/or new line).
+    # The pyramid app isn't in maintenance mode for people who have one of these permissions.
+    pyramid_maintenance.permissions = permission1, permission2
     # Relative path from defined template location directories.
     pyramid_maintenance.template = template.mako

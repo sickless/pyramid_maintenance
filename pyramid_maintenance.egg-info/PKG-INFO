@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: pyramid-maintenance
-Version: 0.1
+Version: 0.2
 Summary: pyramid_maintenance
 Home-page: UNKNOWN
 Author: Benoît Pineau
@@ -23,8 +23,8 @@ Description: pyramid_maintenance
         
         How to install it
         -----------------
-        
         ::
+        
             pip install pyramid_maintenance
         
         
@@ -38,14 +38,21 @@ Description: pyramid_maintenance
         
         And define the following settings::
         
-            # List of roles (separeted by commas). The pyramid app isn't
-            # in maintenance mode for people who have one of these roles.
-            pyramid_maintenance.roles = role1, role2
+            # List of permissions (separeted by comma, space, carriage return and/or new line).
+            # The pyramid app isn't in maintenance mode for people who have one of these permissions.
+            pyramid_maintenance.permissions = permission1, permission2
             # Relative path from defined template location directories.
             pyramid_maintenance.template = template.mako
         
         
-        0.0
+        0.2
+        ---
+        
+        -  Make you strictless on the .ini file
+        -  Rename role into permission
+        
+        
+        0.1
         ---
         
         -  Initial version
