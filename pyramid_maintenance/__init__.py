@@ -29,7 +29,7 @@ def tween_maintenance(handler, registry):
             if request.has_permission(permission, rootfactory):
                 return handler(request)
 
-        return Response(render(template, {'title':''}, request))
+        return Response(render(template, {}, request))
 
 
     return doer
